@@ -8,6 +8,8 @@
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
 </head>
 <body>
+    <%- include('./partials/_navbar.ejs') %>
+
     <% if (user) { %>
         <div class="logo">
             <img src="/css/images/phl-logo.png" alt="PHL Logo">
@@ -20,14 +22,14 @@
 
         <main class="user-options">
 
-            <a href="/teams" class="option-link">
+            <a href="/users/:userId/teams" class="option-link">
                 <div class="option">
                     <h3>View My Teams</h3>
                     <p>View or Edit my current teams and players.</p>
                 </div>
             </a>
 
-            <a href="/teams/new" class="option-link">
+            <a href="/users/:userId/teams/new" class="option-link">
                 <div class="option">
                     <h3>Build a Team</h3>
                     <p>Create your team for the upcoming season!</p>
@@ -42,7 +44,19 @@
             </a>
         </main>
     <% } else { %>
-        
+        <div class="logo">
+            <img src="/css/images/phl-logo.png" alt="PHL Logo">
+        </div>
+
+        <div class="headers">
+            <h1>Peninsula Hoopers League</h1>
+            <h2>Our official site for creating your teams.</h2>
+        </div>
+
+        <main>
+            <a href="/auth/sign-in" class="btn">Sign In</a>
+            <a href="/auth/sign-up" class="btn">Sign Up</a>        
+        </main>
     <% } %>
 </body>
 </html>

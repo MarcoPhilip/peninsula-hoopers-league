@@ -1,5 +1,6 @@
 const { default: mongoose } = require("mongoose");
 
+// Define the playerSchema
 const playerSchema = new mongoose.Schema ({
     firstname: {
         type: String,
