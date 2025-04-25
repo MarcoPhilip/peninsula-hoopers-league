@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHL Sign-In</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
 </head>
 <body>
-    <div>
-        <h1>WELCOME TO THE PENINSULA HOOPERS LEAGUE PAGE</h1>
+    <div class="signin-box">
+        <div>
+            <p><strong>Peninsula Hoopers League</strong></p>
+        </div>
+
+        <div class="logo">
+            <img src="/css/images/phl-logo.png" alt="PHL Logo">
+        </div>
+
+        <div>
+            <p>Please sign-in with your account below.</p>
+        </div>
+
+        <form action="/auth/sign-in"  method="POST">
+
+            <label for="username"><strong>Username:</strong></label>
+            
+            <input type="text" name="username" id="username" required />
+
+            <br><br>
+
+            <label for="password"><strong>Password:</strong></label>
+            <input type="password" name="password" id="password" required/>
+
+            <br><br>
+
+            <div class="signin-button">
+                <button type="submit">Sign In</button>
+            </div>
+        </form>
+        <br>
+        <div class="signup-link">
+            <a href="/auth/sign-up">Create an Account</a>
+        </div>
+        <br>
     </div>
 
 </body>
