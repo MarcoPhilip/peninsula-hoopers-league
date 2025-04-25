@@ -8,6 +8,41 @@
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
 </head>
 <body>
-    <h1>It works</h1>
+    <% if (user) { %>
+        <div class="logo">
+            <img src="/css/images/phl-logo.png" alt="PHL Logo">
+        </div>
+
+        <div class="headers">
+            <h1>Peninsula Hoopers League</h1>
+            <h2>Our official site for creating your teams.</h2>
+        </div>
+
+        <main class="user-options">
+
+            <a href="/teams" class="option-link">
+                <div class="option">
+                    <h3>View My Teams</h3>
+                    <p>View or Edit my current teams and players.</p>
+                </div>
+            </a>
+
+            <a href="/teams/new" class="option-link">
+                <div class="option">
+                    <h3>Build a Team</h3>
+                    <p>Create your team for the upcoming season!</p>
+                </div>
+            </a>
+
+            <a href="/users" class="option-link">
+                <div class="option">
+                    <h3>Our League Teams</h3>
+                    <p>Explore and view other teams within our league!</p>
+                </div>
+            </a>
+        </main>
+    <% } else { %>
+        
+    <% } %>
 </body>
 </html>
