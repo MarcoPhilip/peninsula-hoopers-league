@@ -32,6 +32,7 @@ router.get('/', async (req, res) => {
 
 // GET /users/:userId/teams/new
 router.get('/new', (req, res) => {
+    const currentUser = req.session.currentUser; //fix later
     // render the teams/new.ejs
     res.render('teams/new.ejs');
 });
@@ -39,7 +40,14 @@ router.get('/new', (req, res) => {
 // GET /users/:userId/teams/:teamId
 router.get('/:teamId', async (req, res) => {
     try {
-
+        // look up the user from session
+        const currentUser = await User.findById(req.session.user._id);
+        // look up the user's team by id from req.params
+        const team = await currentUser.team.findByIdid(req.params.teamId).populate('owner').populate('players');
+        // render the show.ejs and pass the team data
+        res.render('teams/show.ejs', {
+            team: team,
+        });
     } catch (error) {
         // if any errors, log it and redirect back home 
         console.log(error);
@@ -50,20 +58,20 @@ router.get('/:teamId', async (req, res) => {
 // POST /users/:userId/teams
 router.post('/', async (req, res) => {
     try {
-        // get the userID from req.params
-        const { userId } = req.params;
-        // get team name and division from the form
-        const { name, division } = req.body;
-        // create new team in DB
-        const newTeam = await Team.create({
-            name,
-            division,
-            owner: userId,
-        })
-        //push the new team 
-        await User.findByIdandUpdate(userId, {
-            $push: { teams: newTeam._id }
-        });
+        // find user from the session
+        const currentUser = await User.findById(req.session.user._id);
+        // fill in team detail fields from the form, set the owner as the current user
+        const team = {
+            name: req.body.name,
+            division: req.body.division,
+            owner: currentUser,
+        };
+        // create the team
+        const newTeam = await Team.create(team);
+        // push the new team into the user array
+        currentUser.teams.push(newTeam._id);
+        // save the current user changes
+        await currentUser.save();
         // redirect back to current user teams
         res.redirect(`/users/${req.params.userId}/teams`);
     } catch (error) {

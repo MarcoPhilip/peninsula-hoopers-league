@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= team.name %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    
+    <main class="team-page">
+
+        <section class="team-headers">
+            <div class="logo">
+                <img src="/css/images/phl-logo.png" alt="PHL Logo">
+            </div>
+
+            <h1 class="team-name"><%= team.name %></h1>
+
+            <div class="logo">
+                <img src="/css/images/phl-logo.png" alt="PHL Logo">
+            </div>
+
+        </section>
+
+        <section class="team-details">
+
+            <div>
+                <h2><strong>Team Name:</strong> <%= team.name %></h2>
+            </div>
+
+            <div>
+                <h2><strong>Division:</strong> <%= team.division %></h2>
+            </div>
+
+            <div>
+                <h2><strong>Team Creator:</strong> <%= team.owner.firstname %> <%= team.owner.lastname %></h2>
+            </div>
+
+        </section>
+
+        <section class="team-players">
+            <% team.players.forEach(player => { %>
+                <div>
+                    <p><strong>Name:</strong> <%= player.firstname %> <%= player.lastname %></p>
+                    <p><strong>Height:</strong> <%= player.height%></p>
+                    <p><strong>Position:</strong> <%= player.position %></p>
+                </div>
+            <% }) %>
+        </section>
+
+        <section class="team-actions">
+
+            <a href="/teams/<%= team._id %>/edit" class="btn"> Edit This Team</a>
+
+            <form action="/teams/<%= team._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Thi Team</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

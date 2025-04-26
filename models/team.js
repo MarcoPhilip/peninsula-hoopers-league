@@ -1,4 +1,4 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 // Define the team schema
 const teamSchema = new mongoose.Schema({

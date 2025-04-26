@@ -14,16 +14,16 @@
             <img src="/css/images/phl-logo.png" >
         </div>
         <div class="headers">
-            <h1>Peninsula Hoopers League: Create a Team</h1>
+            <h1>Peninsula Hoopers League: Edit a Team</h1>
         </div>
     </div>
     <main class="team-form">
-        <form action="/users/<%= user._id %>/teams" method="POST">
+        <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=PUT" method="POST">
             <label for="name">Team Name:</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" value="<%= team.name %>"/>
 
             <label for="division">Division:</label>
-            <select name="division" id="division" required>
+            <select>
                 <option value="Open Division">Open Division</option>
                 <option value="Open Rec Division">Open Rec Divisionc</option>
                 <option value="Open Asian Division">Open Asian Division</option>
@@ -31,7 +31,7 @@
                 <option value="Age 50 and Over Division">Age 50 and Over Division</option>
                 <option value="6 Feet Under All-Filipino">6 Feet Under All-Filipino'</option>
             </select>
-
+            
             <button type="submit">Create Team</button>
         </form>
     </main>
