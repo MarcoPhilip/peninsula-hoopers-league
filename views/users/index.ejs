@@ -13,8 +13,20 @@
         <section>
             <div class="logo">
                 <img src="/css/images/phl-logo.png" alt="PHL Logo">
-                <h1></h1>
+                <h1>PHL Current Teams</h1>
             </div>
+        </section>
+        <section>
+            <% users.forEach(user => { %>
+                <% user.teams.forEach(team => { %>
+                    <a href="/users/<%= user._id %>/teams/<%= team._id %>">
+                        <div>
+                            <h2>Team <%= team.name %></h2>
+                            <h3>by <%= user.firstname %> <%= user.lastname %></h3>
+                        </div>
+                    </a>
+                <% }) %>
+            <%}) %>
         </section>
     </main>
 </body>

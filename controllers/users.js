@@ -28,8 +28,21 @@ router.get('/', async (req, res) => {
 
 // GET /:userId
 router.get('/:userId', async (req, res) => {
-    // look for all users in DB
+    const { userId, teamId } = req.params;
+    // look for all users in DB and their teams and players
+    const user = await User.findById(userId).populate({
+        path: 'teams',
+        populate: {
+            path: 'players',
+        }
+    });
+    // look up the team by comparing it to the req.params(teamId)
+    const team = user.teams.find(tm => tm._id.toString() === teamId);
     // render the users/index.ejs
+    res.render('users/show.ejs', {
+        user,
+        team,
+    })
     // if errors occur, log and then redirect back home
 })
 

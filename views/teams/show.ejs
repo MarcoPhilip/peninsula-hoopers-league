@@ -9,7 +9,10 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    
+    <div class="logo">
+        <img src="/css/images/phl-logo.png" alt="PHL Logo">
+        <h1>Peninsula Hoopers League</h1>
+    </div>
     <main class="team-page">
 
         <section class="team-headers">
@@ -54,15 +57,19 @@
             <% } else { %>
                 <p><strong>Team <%= team.name %> has no players yet.</strong></p>
             <% } %>
+            <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+                <a href="/users/<%= user._id %>/teams/<%= team._id %>/players" class="btn">Add A Player</a>
+            <% } %>     
         </section>
-
+        
         <section class="team-actions">
+            <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+                <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/edit" class="btn"> Edit This Team</a>
 
-            <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/edit" class="btn"> Edit This Team</a>
-
-            <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete This Team</button>
-            </form>
+                <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete This Team</button>
+                </form>
+            <% } %>
         </section>
     </main>
 </body>

@@ -47,6 +47,8 @@ router.get('/:teamId', async (req, res) => {
         // render the show.ejs and pass the team data
         res.render('teams/show.ejs', {
             team: team,
+            currentUser: req.session.user,
+            user: team.owner,
     });
     } catch (error) {
         // if any errors, log it and redirect back home 
