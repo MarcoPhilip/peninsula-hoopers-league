@@ -19,7 +19,7 @@
     </div>
     <main class="teams">
         <% teams.forEach(team => { %>
-            <a href="/teams/<%= team._id %>">
+            <a href="/users/:userId/teams/<%= team._id %>">
                 <div class="team-card">
                     <h2><%= team.name %></h2>
                     <p><%= team.division %></p>

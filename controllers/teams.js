@@ -41,13 +41,13 @@ router.get('/new', (req, res) => {
 router.get('/:teamId', async (req, res) => {
     try {
         // look up the user from session
-        const currentUser = await User.findById(req.session.user._id);
+        // const currentUser = await User.findById(req.session.user._id);
         // look up the user's team by id from req.params
-        const team = await currentUser.team.findByIdid(req.params.teamId).populate('owner').populate('players');
+        const team = await Team.findById(req.params.teamId).populate('owner').populate('players');
         // render the show.ejs and pass the team data
         res.render('teams/show.ejs', {
             team: team,
-        });
+    });
     } catch (error) {
         // if any errors, log it and redirect back home 
         console.log(error);
@@ -82,9 +82,27 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE /users/:userId/teams/:teamId
-router.get('/:teamId', async (req, res) => {
+router.delete('/:teamId', async (req, res) => {
     try {
+        // get the team from req.params
+        const team = await Team.findById(req.params.teamId);
+        // use mongoose .delete() method to delete team and its players
+        // delete players in the team
+        await Player.deleteMany({
+            _id: {
+                $in: team.players
+            }
+        });
+        // delete team
+        await Team.findByIdAndDelete(req.params.teamId);
+        //update the user teams array
+        await User.findByIdAndUpdate(req.session.user._id, {
+            //use $pull method
+            $pull: { teams: req.params.teamId }
+        })
 
+        // redirect back to the user teams index
+        res.redirect(`users/${req.session.user._id}/teams`);
     } catch (error) {
         // if any errors, log it and redirect back home 
         console.log(error);
@@ -95,7 +113,16 @@ router.get('/:teamId', async (req, res) => {
 // GET /users/:userId/teams/edit
 router.get('/:teamId/edit', async (req, res) => {
     try {
+        const currentTeam = await Team.findById(req.params.teamId);
 
+         // check for user
+         if (!currentTeam.owner.equals(req.session.user._id)) {
+            return res.redirect('/');
+         }
+
+        res.render('teams/edit.ejs', {
+            team: currentTeam,
+        })
     } catch (error) {
         // if any errors, log it and redirect back home 
         console.log(error);
@@ -106,6 +133,7 @@ router.get('/:teamId/edit', async (req, res) => {
 // PUT /users/:userId/teams/:teamId
 router.put('/:teamId', async (req, res) => {
     try {
+        
 
     } catch (error) {
         // if any errors, log it and redirect back home 
