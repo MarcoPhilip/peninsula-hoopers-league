@@ -15,6 +15,8 @@ const authController = require('./controllers/auth.js');
 const teamsController = require('./controllers/teams.js');
 // Import the users controller
 const usersController = require('./controllers/users.js');
+// Import the players controller
+const playersController = require('./controllers/players.js');
 
 
 const port = process.env.PORT ? process.env.PORT : '3000';
@@ -49,6 +51,7 @@ app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/teams', teamsController);
 app.use('/users', usersController);
+app.use('/users/:userId/teams/:teamId/players', playersController);
 
 
 

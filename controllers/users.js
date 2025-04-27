@@ -36,7 +36,7 @@ router.get('/:userId', async (req, res) => {
             path: 'players',
         }
     });
-    // look up the team by comparing it to the req.params(teamId)
+    // look up the team by comparing it to the req.params
     const team = user.teams.find(tm => tm._id.toString() === teamId);
     // render the users/index.ejs
     res.render('users/show.ejs', {

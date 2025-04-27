@@ -40,8 +40,6 @@ router.get('/new', (req, res) => {
 // GET /users/:userId/teams/:teamId
 router.get('/:teamId', async (req, res) => {
     try {
-        // look up the user from session
-        // const currentUser = await User.findById(req.session.user._id);
         // look up the user's team by id from req.params
         const team = await Team.findById(req.params.teamId).populate('owner').populate('players');
         // render the show.ejs and pass the team data
