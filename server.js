@@ -13,6 +13,8 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 // add the controllers
 const authController = require('./controllers/auth.js');
 const teamsController = require('./controllers/teams.js');
+// Import the users controller
+const usersController = require('./controllers/users.js');
 
 
 const port = process.env.PORT ? process.env.PORT : '3000';
@@ -46,6 +48,8 @@ app.use(passUserToView);
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/teams', teamsController);
+app.use('/users', usersController);
+
 
 
 app.listen(port, () => {

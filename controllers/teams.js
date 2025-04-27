@@ -102,7 +102,7 @@ router.delete('/:teamId', async (req, res) => {
         })
 
         // redirect back to the user teams index
-        res.redirect(`users/${req.session.user._id}/teams`);
+        res.redirect(`/`);
     } catch (error) {
         // if any errors, log it and redirect back home 
         console.log(error);
@@ -133,8 +133,21 @@ router.get('/:teamId/edit', async (req, res) => {
 // PUT /users/:userId/teams/:teamId
 router.put('/:teamId', async (req, res) => {
     try {
+        // look up the user from session
+        const currentUser = await User.findById(req.session.user._id);
+        // find the team from req.params
+        const currentTeam = await Team.findById(req.params.teamId);
         
-
+         // check for user
+         if (!currentTeam.owner.equals(req.session.user._id)) {
+            return res.redirect('/');
+         }
+        // set the req.body for the team
+        currentTeam.set(req.body);
+        // save the changes first
+        await currentTeam.save();
+        // redirect to the team show page 
+        res.redirect(`/users/${currentUser._id}/teams/${req.params.teamId}`);
     } catch (error) {
         // if any errors, log it and redirect back home 
         console.log(error);

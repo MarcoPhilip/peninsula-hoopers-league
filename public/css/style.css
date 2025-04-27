@@ -5,7 +5,28 @@
     height: 100px;
     display: block;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: aquamarine;
+    border: 5px solid black;
+}
+nav a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
 
+nav a:hover {
+    background-color: rgb(221, 159, 79);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+ nav .sign-out {
+    margin-left: auto;
+ }
 /* Sign In/Up Box Div*/
 .signin-box, .signup-box {
     border: solid black;
