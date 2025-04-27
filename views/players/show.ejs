@@ -9,5 +9,14 @@
 </head>
 <body>
     <h1>It Works</h1>
+    <section class="player-actions">
+        <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+            <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>/edit" class="btn">Edit This Player</a>
+
+            <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>?_method=DELETE" method="POST">
+                <button type="submit">Remove This Player</button>
+            </form>
+        <% } %>
+    </section>
 </body>
 </html>

@@ -48,11 +48,13 @@
             <h2><strong>Players:</strong></h2>
             <% if  (team.players.length > 0) { %>
                 <% team.players.forEach(player => { %>
-                    <div>
-                        <p><strong>Name:</strong> <%= player.firstname %> <%= player.lastname %></p>
-                        <p><strong>Height:</strong> <%= player.height%></p>
-                        <p><strong>Position:</strong> <%= player.position %></p>
-                    </div>
+                    <a href="/users/<%= user._id %>/teams/<%= team._id %>/players/<%= player._id %>">
+                        <div>
+                            <p><strong>Name:</strong> <%= player.firstname %> <%= player.lastname %></p>
+                            <p><strong>Height:</strong> <%= player.height%></p>
+                            <p><strong>Position:</strong> <%= player.position %></p>
+                        </div>
+                    </a>
                 <% }) %>
             <% } else { %>
                 <p><strong>Team <%= team.name %> has no players yet.</strong></p>
