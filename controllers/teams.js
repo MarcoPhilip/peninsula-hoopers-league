@@ -138,7 +138,7 @@ router.put('/:teamId', async (req, res) => {
         // find the team from req.params
         const currentTeam = await Team.findById(req.params.teamId);
         
-         // check for user
+        // check for user
          if (!currentTeam.owner.equals(req.session.user._id)) {
             return res.redirect('/');
          }

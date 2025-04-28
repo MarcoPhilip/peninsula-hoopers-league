@@ -5,6 +5,7 @@
     height: 100px;
     display: block;
 }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -12,6 +13,8 @@ nav {
     padding: 10px 20px;
     background-color: aquamarine;
     border: 5px solid black;
+    border-radius: 10px;
+    position: relative;
 }
 nav a {
     color: black;
@@ -42,4 +45,12 @@ nav a:hover {
 .signin-button, .signup-button {
     text-align: center;
     
+}
+
+.header-box {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    border: 5px solid black;
+    border-radius: 10px;
 }

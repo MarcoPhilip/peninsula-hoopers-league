@@ -96,7 +96,8 @@ router.get('/:playerId/edit', async (req, res) => {
             user: user,
             team: team,
             player: player,
-        })
+            currentUser: req.session.user,
+        });
     } catch (error) {
         //if error occurs, log and then redirect back to home
         console.log(error);
@@ -107,7 +108,20 @@ router.get('/:playerId/edit', async (req, res) => {
 // PUT /:playerId (Edit a player)
 router.put('/:playerId', async (req, res) => {
     try {
-        
+        // look up the user from session
+        const currentUser = await User.findById(req.session.user._id);
+        // find the team from req.params
+        const currentTeam = await Team.findById(req.params.teamId);
+        // get the id from req.params
+        const player = req.params.playerId;
+        // get the req.body
+        const { firstname, lastname, position, height} = req.body;
+        // find the player id and update it
+        const updatedPlayer = await Player.findByIdAndUpdate(player,
+            { firstname, lastname, position, height }
+        )
+        // redirect to the player id view page
+        res.redirect(`/users/${currentUser._id}/teams/${req.params.teamId}/players/${player}`);
     } catch (error) {
         //if error occurs, log and then redirect back to home
         console.log(error);
