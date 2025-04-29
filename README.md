@@ -17,8 +17,8 @@ ___Peninsula Hoopers League___ is a community basketball league originated origi
 * All users can add, edit or delete a player on the team of their choosing. 
 
 ## 🌐 Links
-
-
+→ [Deployment Link](https://peninsula-hoopers-league-6dc6db12264c.herokuapp.com/)
+→ [GitHub Repo Link](https://github.com/MarcoPhilip/peninsula-hoopers-league)
 
 ## 💻 Technologies
 
@@ -39,4 +39,5 @@ I am also planning to have all team owners in the app to have the ability to upl
 ## 🎨 Creator
 
 **MarcoPhilip**
+
 A *Peninsula Hoopers League* founder.
