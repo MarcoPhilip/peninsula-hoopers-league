@@ -3,20 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Team</title>
+    <title>Player Profile</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blaka&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <h1>It Works</h1>
-    <section class="player-actions">
-        <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
-            <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>/edit" class="btn">Edit This Player</a>
+    <%- include('../partials/_navbar.ejs') %>
+    <header class="header-box">
+        <div class="logo">
+            <img src="/css/images/phl-logo.png" alt="PHL Logo">
+        </div>
 
-            <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>?_method=DELETE" method="POST">
-                <button type="submit">Remove This Player</button>
-            </form>
-        <% } %>
-    </section>
+        <div class="headers">
+            <h1>Peninsula Hoopers League: Player Profile</h1>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div>
+                <h2><strong>Player Name:</strong> <%= player.firstname %> <%= player.lastname %></h2>
+            </div>
+
+            <div>
+                <h2><strong>Position:</strong> <%= player.position %></h2>
+                <h2><strong>Height:</strong> <%= player.height %></h2>
+            </div>
+
+        </section>
+        <section class="player-actions">
+            <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+                <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>/edit" class="btn">Edit This Player</a>
+
+                <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>?_method=DELETE" method="POST">
+                    <button type="submit">Remove This Player</button>
+                </form>
+            <% } %>
+        </section>
+    </main>
 </body>
 </html>

@@ -6,6 +6,10 @@
     <title>Peninsula Hoopers League</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blaka&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('./partials/_navbar.ejs') %>
@@ -20,9 +24,10 @@
                 <h1>Peninsula Hoopers League</h1>
             </div>
         </header>
-        <section>
-            <h2>Our official site for creating your teams.</h2>
-        </section>
+        <div class="home-info">
+            <h2>Welcome back, <%= user.firstname %>.</h2>
+            <p>Please choose your user options below.</p>
+        </div>
         <main class="user-options">
 
             <a href="/users/:userId/teams" class="option-link">
@@ -47,18 +52,24 @@
             </a>
         </main>
     <% } else { %>
-        <div class="logo">
-            <img src="/css/images/phl-logo.png" alt="PHL Logo">
-        </div>
+        <header class="header-box">
+            <div class="logo">
+                <img src="/css/images/phl-logo.png" alt="PHL Logo">
+            </div>
 
-        <div class="headers">
-            <h1>Peninsula Hoopers League</h1>
-            <h2>Our official site for creating your teams.</h2>
-        </div>
-
+            <div class="headers">
+                <h1>Peninsula Hoopers League</h1>
+            </div>
+        </header>
         <main>
-            <a href="/auth/sign-in" class="btn">Sign In</a>
-            <a href="/auth/sign-up" class="btn">Sign Up</a>        
+            <section class="home-info">
+                <h2>Welcome to our official site!</h2>
+                <p>Please click <strong>Sign-In</strong> to view your current teams and players. Or click <strong>Sign-Up</strong> to create an account with us and start building your teams for the upcoming seasons!</p>
+            </section>
+            <section class="auth-buttons">
+                <a href="/auth/sign-in" class="btn">Sign In</a>
+                <a href="/auth/sign-up" class="btn">Sign Up</a>        
+            </section>
         </main>
     <% } %>
 </body>

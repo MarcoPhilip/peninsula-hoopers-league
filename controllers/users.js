@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
-const { populate } = require('../models/team.js');
+
 
 
 // GET /users
@@ -38,12 +38,11 @@ router.get('/:userId', async (req, res) => {
     });
     // look up the team by comparing it to the req.params
     const team = user.teams.find(tm => tm._id.toString() === teamId);
-    // render the users/index.ejs
+    // render the users/show.ejs
     res.render('users/show.ejs', {
         user,
         team,
-    })
-    // if errors occur, log and then redirect back home
+    });
 })
 
 

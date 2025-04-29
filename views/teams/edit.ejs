@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Team</title>
+    <title>Edit a Team</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blaka&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <div class="main-header">
+    <header class="header-box">
         <div class="logo">
-            <img src="/css/images/phl-logo.png" >
+            <img src="/css/images/phl-logo.png" alt="PHL Logo">
         </div>
+
         <div class="headers">
             <h1>Peninsula Hoopers League: Edit a Team</h1>
         </div>
-    </div>
+    </header>
     <main class="team-form">
         <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=PUT" method="POST">
 
