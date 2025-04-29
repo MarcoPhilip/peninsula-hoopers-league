@@ -19,6 +19,7 @@ ___Peninsula Hoopers League___ is a community basketball league originated origi
 ## 🌐 Links
 → [Deployment Link](https://peninsula-hoopers-league-6dc6db12264c.herokuapp.com/)
 → [GitHub Repo Link](https://github.com/MarcoPhilip/peninsula-hoopers-league)
+→ [Trello Planning Link](https://trello.com/invite/b/6807f4cd3e19854847e1cd95/ATTIfc57f722822d220228c51b7b8410acd35F33394E/my-first-crud-app)
 
 ## 💻 Technologies
 
@@ -32,7 +33,7 @@ This application uses the following:
 
 ## 🔮 Stretch Goals
 
-We are hoping to improve this app in the coming future. Next stage of the plan is to have all users have a their own player profile. Every player in each team must sign up to this app in order for them to be listed in the roster.
+We are hoping to improve this app in the coming future. Next stage of the plan is to have all users have their own player profile. Every player in each team must sign up to this app in order for them to be listed in the roster.
 
 I am also planning to have all team owners in the app to have the ability to upload their team logos. In addition, player photos with additional details from them will be required. With our plan to expand our reach to as many basketball lovers as possible, I will also post our social links and contacts in the future! 
 
