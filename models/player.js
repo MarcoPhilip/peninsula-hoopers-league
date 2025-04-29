@@ -1,4 +1,4 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 // Define the playerSchema
 const playerSchema = new mongoose.Schema ({
