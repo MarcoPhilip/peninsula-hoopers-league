@@ -22,16 +22,19 @@
             <h1>Peninsula Hoopers League: Add a Player</h1>
         </div>
     </header>
-    <main class="team-form">
+    <main class="player-form">
         <form action="/users/<%= user._id %>/teams/<%= team._id %>/players" method="POST">
-
-            <label for="firstname">First Name:</label>
+        
+            <label for="firstname">First Name</label>
+            <br>
             <input type="text" name="firstname" id="firstname" required>
-
-            <label for="lastname">Last Name:</label>
+            <br><br>
+            <label for="lastname">Last Name</label>
+            <br>
             <input type="text" name="lastname" id="lastname" required>
-
-            <label for="position">Position:</label>
+            <br><br>
+            <label for="position">Position</label>
+            <br>
             <select name="position" id="position" required>
                 <option value="PG">PG</option>
                 <option value="SG">SG</option>
@@ -40,10 +43,11 @@
                 <option value="PF">PF</option>
                 <option value="Coach">Coach</option>
             </select>
-
-            <label for="height">Height:</label>
+            <br><br>
+            <label for="height">Height</label>
+            <br>
             <input type="text" name="height" id="height" placeholder="Example: 6'2&quot;" required>
-
+            <br><br>
             <button type="submit">Add Player</button>
         </form>
     </main>

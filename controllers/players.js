@@ -121,7 +121,7 @@ router.put('/:playerId', async (req, res) => {
             { firstname, lastname, position, height }
         )
         // redirect to the player id view page
-        res.redirect(`/users/${currentUser._id}/teams/${req.params.teamId}/players/${player}`);
+        res.redirect(`/users/${currentUser._id}/teams/${req.params.teamId}`);
     } catch (error) {
         //if error occurs, log and then redirect back to home
         console.log(error);

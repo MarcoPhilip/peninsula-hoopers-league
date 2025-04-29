@@ -12,9 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Blaka&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include('./partials/_navbar.ejs') %>
-
     <% if (user) { %>
+        <%- include('./partials/_navbar.ejs') %>
         <header class="header-box">
             <div class="logo">
                 <img src="/css/images/phl-logo.png" alt="PHL Logo">
@@ -64,7 +63,7 @@
         <main>
             <section class="home-info">
                 <h2>Welcome to our official site!</h2>
-                <p>Please click <strong>Sign-In</strong> to view your current teams and players. Or click <strong>Sign-Up</strong> to create an account with us and start building your teams for the upcoming seasons!</p>
+                <p>Please click <strong>SIGN-IN</strong> to view your current teams and players. Or click <strong>SIGN-UP</strong> to create an account with us and start building your teams for the upcoming seasons!</p>
             </section>
             <section class="auth-buttons">
                 <a href="/auth/sign-in" class="btn">Sign In</a>

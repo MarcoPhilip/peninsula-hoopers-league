@@ -4,8 +4,8 @@ body {
     font-family: "Tinos", serif;
     font-weight: 400;
     font-style: normal;
+    padding-bottom: 30px;
 }
-
 
 /* PHL Logo */
 .logo img {
@@ -40,6 +40,7 @@ nav a:hover {
     background-color: rgb(146, 134, 120);
     border: 1px solid black;
     border-radius: 5px;
+    padding: 5px;
 }
 
 nav .sign-out {
@@ -48,15 +49,95 @@ nav .sign-out {
 
 
 /* Sign In/Up Box Div*/
-.signin-box, .signup-box {
-    border: solid black;
+#auth-box {
+    border: 5px solid black;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    width: 300px;
-    margin: 40px auto;
-    border-radius: 10px;
+    justify-self: center;
+    width: 90%;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+#auth-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header {
+    font-size: 3rem;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0px;
+    font-family: "Blaka", system-ui;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 7px white;
+}
+
+#auth-header .logo {
+    margin-top: 0px;
+}
+
+#instruction {
+    text-align: center;
+    font-size: 2rem;
+}
+#auth-form {
+    text-align: center;
+}
+#auth-form label {
+    font-size: 1.8rem;
+}
+
+#auth-form input {
+    width: 200px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 5px;
+    height: 30px;
+}
+
+
+#auth-button button {
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+#auth-button button:hover {
+    background-color: rgb(98, 142, 87);
+}
+
+#alt-auth a {
+    text-transform: uppercase;
+    color: black;
+    font-size: large;
+}
+
+#alt-auth a:hover {
+    color: white;
+}
+
+#auth-btn button {
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 160px;
+    height: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+#auth-btn button:hover {
+    background-color: rgb(98, 142, 87);
 }
 
 .header-box {
@@ -95,19 +176,28 @@ nav .sign-out {
 .auth-buttons .btn {
     width: 100px;
     border: 2px solid black;
+    background-color: rgb(255, 255, 255);
     display: inline-block;
     padding: 5px 10px;
     text-decoration: none;
     color: black;
     border-radius: 10px;
     text-align: center;
+    text-transform: uppercase;
 }
 
+.auth-buttons .btn:hover {
+    background-color: rgb(135, 172, 125);
+}
 .home-info {
     font-size: 1.7rem;
     text-align: center;
     margin-top: 40px;
     justify-content: center;
+}
+
+.home-info p {
+    padding: 20px 40px;
 }
 
 .user-options {
@@ -127,9 +217,372 @@ nav .sign-out {
 }
 
 .option:hover {
-    background-color: rgb(135, 172, 125);
+    background-color: rgb(98, 142, 87);
 }
 .user-options a {
     color: black;
     text-decoration: none;
+}
+
+.teams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 50px;
+    text-decoration: none;
+    margin: 20px auto;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: rgb(98, 142, 87);
+    width: 250px;
+    height: 160px;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.team-card:hover {
+    background-color: rgb(202, 172, 6);
+    color: rgb(0, 0, 0);
+}
+
+.team-card h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+.team-card p {
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.add-team {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.add-team-btn {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(202, 172, 6);
+    border: 3px solid black;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.add-team-btn:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+.team-page {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    margin: 10px auto;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.team-page section {
+    border: 5px solid black;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.team-headers {
+text-align: center;
+text-transform: uppercase;
+font-size: 2.3rem;
+}
+
+.team-details {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.team-players h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#team-box-div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: center;
+    gap: 10px;
+}
+
+.player-cards {
+    width: 200px;
+    border: 5px solid black;
+    border-radius: 10px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px;
+}
+
+.player-cards:hover {
+    background-color: aliceblue;
+}
+
+#add-player-btn {
+    text-align: center;
+    border: 3px solid black;
+    background-color: white;
+    width: 150px;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#add-player-btn a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+#add-player-btn:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+#team-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#team-actions .btn {
+    border: 3px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+    padding-top: 5px;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+#team-actions button {
+    text-transform: uppercase;
+    border: 3px solid black;
+    padding: 5px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+#team-actions .btn:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+#team-actions button:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+#all-teams {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 10px auto;
+    justify-content: center;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#all-teams a {
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    text-decoration: none;
+    color: black;
+}
+
+#all-teams a:hover {
+    background-color: rgb(98, 142, 87);
+}
+
+#team-form {
+    border: 5px solid black;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: row;
+    margin: 20px;
+    width: 70%;
+    height: 500px;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+}
+
+#team-form div {
+    margin: 10px;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+#team-form input {
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+}
+
+#team-form select {
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+#team-form button {
+    width: 130px;
+    height: 30px;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+#team-form button:hover {
+    border: 3px solid black;
+    background-color: rgb(135, 172, 125);
+}
+
+#player-profile {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 20px auto;
+    align-items: center;
+    gap: 10px;
+    padding: 50px;
+}
+
+#player-details {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#player-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+#player-actions a {
+    border: 3px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+    padding-top: 5px;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+#player-actions button {
+    text-transform: uppercase;
+    border: 3px solid black;
+    padding: 5px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+#player-actions a:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+#player-actions button:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+.player-form {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 30px;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.player-form label {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.player-form input, .player-form select{
+    border: 3px solid black;
+    height: 25px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.player-form button {
+    border: 3px solid black;
+    background-color: rgb(191, 203, 213);
+    border-radius: 5px;
+    width: 170px;
+    height: 35px;
+    text-transform: uppercase;
+}
+
+.player-form button:hover {
+    background-color: rgb(135, 172, 125);
+}
+
+@media (max-width: 800px) {
+    nav {
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+        text-align: center;
+    }
+
+    #team-form {
+        width: 95%;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
+
+    #auth-box {
+        width: 90%;
+        padding: 10px;
+        padding-bottom: 20px;
+        margin: 15px
+    }
+
 }

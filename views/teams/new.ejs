@@ -20,25 +20,32 @@
         </div>
 
         <div class="headers">
-            <h1>Peninsula Hoopers League: Create a Team</h1>
+            <h1>Create a Team</h1>
         </div>
     </header>
-    <main class="team-form">
+    <main id="team-form">
         <form action="/users/<%= user._id %>/teams" method="POST">
-            <label for="name">Team Name:</label>
-            <input type="text" name="name" id="name" required>
-
-            <label for="division">Division:</label>
-            <select name="division" id="division" required>
-                <option value="Open Division">Open Division</option>
-                <option value="Open Rec Division">Open Rec Divisionc</option>
-                <option value="Open Asian Division">Open Asian Division</option>
-                <option value="Age 40 and Over Division">Age 40 and Over Division</option>
-                <option value="Age 50 and Over Division">Age 50 and Over Division</option>
-                <option value="6 Feet Under All-Filipino">6 Feet Under All-Filipino'</option>
-            </select>
-
-            <button type="submit">Create Team</button>
+            <div>
+                <label for="name">Team Name:</label>
+                <br>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <br><br>
+            <div>
+                <label for="division">Division:</label>
+                <br>
+                <select name="division" id="division" required>
+                    <option value="Open Division">Open Division</option>
+                    <option value="Open Rec Division">Open Rec Divisionc</option>
+                    <option value="Open Asian Division">Open Asian Division</option>
+                    <option value="Age 40 and Over Division">Age 40 and Over Division</option>
+                    <option value="Age 50 and Over Division">Age 50 and Over Division</option>
+                    <option value="6 Feet Under All-Filipino">6 Feet Under All-Filipino'</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Create Team</button>
+            </div>
         </form>
     </main>
 </body>

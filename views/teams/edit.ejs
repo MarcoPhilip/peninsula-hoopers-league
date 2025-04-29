@@ -22,23 +22,29 @@
             <h1>Peninsula Hoopers League: Edit a Team</h1>
         </div>
     </header>
-    <main class="team-form">
+    <main id="team-form">
         <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=PUT" method="POST">
-
-            <label for="name">Team Name:</label>
-            <input type="text" name="name" id="name" value="<%= team.name %>"/>
-
-            <label for="division">Division:</label>
-            <select name="division">
-                <option value="Open Division" <%= team.division === '' ? 'selected' : ''%>>Open Division</option>
-                <option value="Open Rec Division" <%= team.division === 'Open Rec Division' ? 'selected' : ''%>>Open Rec Division</option>
-                <option value="Open Asian Division" <%= team.division === 'Open Asian Division' ? 'selected' : ''%>>Open Asian Division</option>
-                <option value="Age 40 and Over Division" <%= team.division === 'Age 40 and Over Division' ? 'selected' : ''%>>Age 40 and Over Division</option>
-                <option value="Age 50 and Over Division" <%= team.division === 'Age 50 and Over Division' ? 'selected' : ''%>>Age 50 and Over Division</option>
-                <option value="6 Feet Under All-Filipino" <%= team.division === '6 Feet Under All-Filipino' ? 'selected' : ''%>>6 Feet Under All-Filipino'</option>
-            </select>
-            
-            <button type="submit">Update Team</button>
+            <div>
+                <label for="name">Team Name</label>
+                <br>
+                <input type="text" name="name" id="name" value="<%= team.name %>"/>
+            </div>
+            <br><br>
+            <div>
+                <label for="division">Division</label>
+                <br>
+                <select name="division">
+                    <option value="Open Division" <%= team.division === '' ? 'selected' : ''%>>Open Division</option>
+                    <option value="Open Rec Division" <%= team.division === 'Open Rec Division' ? 'selected' : ''%>>Open Rec Division</option>
+                    <option value="Open Asian Division" <%= team.division === 'Open Asian Division' ? 'selected' : ''%>>Open Asian Division</option>
+                    <option value="Age 40 and Over Division" <%= team.division === 'Age 40 and Over Division' ? 'selected' : ''%>>Age 40 and Over Division</option>
+                    <option value="Age 50 and Over Division" <%= team.division === 'Age 50 and Over Division' ? 'selected' : ''%>>Age 50 and Over Division</option>
+                    <option value="6 Feet Under All-Filipino" <%= team.division === '6 Feet Under All-Filipino' ? 'selected' : ''%>>6 Feet Under All-Filipino'</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Update Team</button>
+            </div>
         </form>
     </main>
 </body>

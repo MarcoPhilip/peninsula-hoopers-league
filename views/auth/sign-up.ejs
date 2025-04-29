@@ -6,51 +6,64 @@
     <title>PHL Sign-In</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blaka&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="signup-box">
-        <div>
-            <p><strong>Peninsula Hoopers League</strong></p>
-        </div>
-        <div class="logo">
-            <img src="/css/images/phl-logo.png" alt="PHL Logo">
-        </div>
-
-        <div>
-            <p>Fill out the fields to create an account.</p>
-        </div>
-
-        <form action="/auth/sign-up"  method="POST">
-            <label for="firstname"><strong>First Name:</strong></label>
-            <input type="text" name="firstname" id="firstname" required/>
-
-            <br><br>
-
-            <label for="lastname"><strong>Last Name:</strong></label>
-            <input type="text" name="lastname" id="lastname" required/>
-
-            <br><br>
-
-            <label for="username"><strong>Username:</strong></label>
-            <input type="text" name="username" id="username" required/>
-            
-            <br><br>
-
-            <label for="password"><strong>Password:</strong></label>
-            <input type="password" name="password" id="password" required/>
-
-            <br><br>
-
-            <label for="confirmPassword"><strong>Confirm Password:</strong></label>
-            <input type="password" name="confirmPassword" id="confirmPassword" required/>
-
-            <br><br>
-
-            <div class="signup-button">
-                <button type="submit">Create Account</button>
+    <main id="auth-box">
+        <section id="auth-header">
+            <div class="header">
+                <p><strong>Peninsula Hoopers League</strong></p>
             </div>
-        </form>
-    </div>
-
+            <div class="logo">
+                <img src="/css/images/phl-logo.png" alt="PHL Logo">
+            </div>
+        </section>
+        <section id="instruction">
+            <p>Fill out the fields to create an account.</p>
+        </section>
+        <section id="auth-form">
+            <form action="/auth/sign-up"  method="POST">
+                <label for="firstname"><strong>First Name</strong></label>
+                <br>
+                <input type="text" name="firstname" id="firstname" required/>
+    
+                <br><br>
+    
+                <label for="lastname"><strong>Last Name</strong></label>
+                <br>
+                <input type="text" name="lastname" id="lastname" required/>
+    
+                <br><br>
+    
+                <label for="username"><strong>Username</strong></label>
+                <br>
+                <input type="text" name="username" id="username" required/>
+                
+                <br><br>
+    
+                <label for="password"><strong>Password</strong></label>
+                <br>
+                <input type="password" name="password" id="password" required/>
+    
+                <br><br>
+    
+                <label for="confirmPassword"><strong>Confirm Password</strong></label>
+                <br>
+                <input type="password" name="confirmPassword" id="confirmPassword" required/>
+    
+                <br><br>
+    
+                <div id="auth-btn">
+                    <button type="submit">Create Account</button>
+                </div>
+                <div id="alt-auth">
+                    <a href="/auth/sign-in" class="sign-in">Sign In</a>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

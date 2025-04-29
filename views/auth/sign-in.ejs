@@ -6,44 +6,48 @@
     <title>PHL Sign-In</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/css/images/phl-logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blaka&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <div class="signin-box">
-        <div>
-            <p><strong>Peninsula Hoopers League</strong></p>
-        </div>
-
-        <div class="logo">
-            <img src="/css/images/phl-logo.png" alt="PHL Logo">
-        </div>
-
-        <div>
-            <p>Please sign-in with your account below.</p>
-        </div>
-
-        <form action="/auth/sign-in"  method="POST">
-
-            <label for="username"><strong>Username:</strong></label>
-            
-            <input type="text" name="username" id="username" required />
-
-            <br><br>
-
-            <label for="password"><strong>Password:</strong></label>
-            <input type="password" name="password" id="password" required/>
-
-            <br><br>
-
-            <div class="signin-button">
-                <button type="submit">Sign In</button>
+    <main id="auth-box">
+        <section id="auth-header">
+            <div class="header">
+                <p><strong>Peninsula Hoopers League</strong></p>
             </div>
-        </form>
-        <br>
-        <div class="signup-link">
-            <a href="/auth/sign-up">Create an Account</a>
-        </div>
-        <br>
-    </div>
+            <div class="logo">
+                <img src="/css/images/phl-logo.png" alt="PHL Logo">
+            </div>
+        </section>
+        <section id="instruction">
+            <p>Fill out the fields to sign into your account.</p>
+        </section>
+        <section id="auth-form">
+            <form action="/auth/sign-in"  method="POST">
 
+                <label for="username"><strong>Username</strong></label>
+                <br>
+                <input type="text" name="username" id="username" required />
+
+                <br><br>
+
+                <label for="password"><strong>Password</strong></label>
+                <br>
+                <input type="password" name="password" id="password" required/>
+
+                <br><br>
+
+                <div id="auth-button">
+                    <button type="submit">Sign In</button>
+                </div>
+                <div id="alt-auth">
+                    <a href="/auth/sign-up" class="sign-out">create an account</a>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

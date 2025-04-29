@@ -25,63 +25,57 @@
     <main class="team-page">
 
         <section class="team-headers">
-            <div class="logo">
-                <img src="/css/images/phl-logo.png" alt="PHL Logo">
-            </div>
-
-            <h1 class="team-name"><%= team.name %></h1>
-
-            <div class="logo">
-                <img src="/css/images/phl-logo.png" alt="PHL Logo">
-            </div>
-
+            <p class="team-name"><%= team.name %> Basketball Team</p>
         </section>
 
         <section class="team-details">
 
             <div>
-                <h2><strong>Team Name:</strong> <%= team.name %></h2>
+                <p><strong>Team Name:</strong> <%= team.name %></p>
             </div>
 
             <div>
-                <h2><strong>Division:</strong> <%= team.division %></h2>
+                <p><strong>Division:</strong> <%= team.division %></p>
             </div>
 
             <div>
-                <h2><strong>Team Creator:</strong> <%= team.owner.firstname %> <%= team.owner.lastname %></h2>
+                <p><strong>Team Creator:</strong> <%= team.owner.firstname %> <%= team.owner.lastname %></p>
             </div>
 
         </section>
 
         <section class="team-players">
-            <h2><strong>Players:</strong></h2>
-            <% if  (team.players.length > 0) { %>
-                <% team.players.forEach(player => { %>
-                    <a href="/users/<%= user._id %>/teams/<%= team._id %>/players/<%= player._id %>">
-                        <div>
-                            <p><strong>Name:</strong> <%= player.firstname %> <%= player.lastname %></p>
-                            <p><strong>Height:</strong> <%= player.height%></p>
-                            <p><strong>Position:</strong> <%= player.position %></p>
-                        </div>
-                    </a>
-                <% }) %>
-            <% } else { %>
-                <p><strong>Team <%= team.name %> has no players yet.</strong></p>
-            <% } %>
-            <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
-                <a href="/users/<%= user._id %>/teams/<%= team._id %>/players/new" class="btn">Add A Player</a>
-            <% } %>     
+            <h2><strong>Players</strong></h2>
+            <div id="team-box-div">
+                <% if  (team.players.length > 0) { %>
+                    <% team.players.forEach(player => { %>
+                        <a href="/users/<%= user._id %>/teams/<%= team._id %>/players/<%= player._id %>" class="player-cards">
+                                <p><strong>Name:</strong> <%= player.firstname %> <%= player.lastname %></p>
+                                <p><strong>Height:</strong> <%= player.height%></p>
+                                <p><strong>Position:</strong> <%= player.position %></p>                   
+                        </a>
+                    <% }) %>
+                <% } else { %>
+                    <p><strong>Team <%= team.name %> has no players yet.</strong></p>
+                <% } %>
+            </div>
+            
+                <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+                    <div id="add-player-btn">
+                        <a href="/users/<%= user._id %>/teams/<%= team._id %>/players/new" class="btn">Add A Player</a>
+                    </div>
+                <% } %>   
         </section>
         
-        <section class="team-actions">
             <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
-                <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/edit" class="btn"> Edit This Team</a>
+                <div id="team-actions">
+                    <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/edit" class="btn"> Edit This Team</a>
 
-                <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete This Team</button>
-                </form>
+                    <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete This Team</button>
+                    </form>
+                </div>
             <% } %>
-        </section>
     </main>
 </body>
 </html>

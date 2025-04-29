@@ -20,30 +20,25 @@
         </div>
 
         <div class="headers">
-            <h1>Peninsula Hoopers League: Player Profile</h1>
+            <h1>Player Profile</h1>
         </div>
     </header>
-    <main>
-        <section>
-            <div>
-                <h2><strong>Player Name:</strong> <%= player.firstname %> <%= player.lastname %></h2>
-            </div>
-
-            <div>
-                <h2><strong>Position:</strong> <%= player.position %></h2>
-                <h2><strong>Height:</strong> <%= player.height %></h2>
-            </div>
-
+    <main id="player-profile">
+        <section id="player-details">
+                <p><strong>Player Name:</strong> <%= player.firstname %> <%= player.lastname %></p>
+                <p><strong>Position:</strong> <%= player.position %></p>
+                <p><strong>Height:</strong> <%= player.height %></p>
         </section>
-        <section class="player-actions">
-            <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+       
+        <% if (currentUser && currentUser._id.toString() === user._id.toString()) { %>
+            <section id="player-actions">
                 <a href="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>/edit" class="btn">Edit This Player</a>
 
                 <form action="/users/<%= team.owner._id %>/teams/<%= team._id %>/players/<%= player._id%>?_method=DELETE" method="POST">
                     <button type="submit">Remove This Player</button>
                 </form>
-            <% } %>
-        </section>
+            </section>
+        <% } %>
     </main>
 </body>
 </html>

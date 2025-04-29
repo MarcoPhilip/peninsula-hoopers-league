@@ -19,21 +19,20 @@
         </div>
 
         <div class="headers">
-            <h1>Peninsula Hoopers League: My Teams</h1>
+            <h1>My Teams</h1>
         </div>
     </header>
+
     <main class="teams">
         <% teams.forEach(team => { %>
-            <a href="/users/:userId/teams/<%= team._id %>">
-                <div class="team-card">
-                    <h2><%= team.name %></h2>
-                    <p><%= team.division %></p>
-                </div>
+            <a href="/users/<%= user._id%>/teams/<%= team._id %>" class="team-card">
+                <h2><%= team.name %></h2>
+                <p><%= team.division %></p>
             </a>
         <% }); %>
-        <div>
-            <a href="/users/<%= user._id %>/teams/new">Add a Team</a>
-        </div>
     </main>
+    <div class="add-team">
+        <a href="/users/<%= user._id %>/teams/new" class="add-team-btn">Add a Team</a>
+    </div>
 </body>
 </html>
